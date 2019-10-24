@@ -69,6 +69,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap" rel="stylesheet">
+
     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Great+Vibes&display=swap" rel="stylesheet">
 
@@ -87,7 +88,7 @@
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
 
-    <script type="text/javascript">
+    <script type="text/javascript"> 
         function maskP(ai){
             if (ai.value.length == 0) {
                 ai.value = "(" + ai.value;
@@ -189,7 +190,7 @@
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav nav ml-auto">
 	          <li class="nav-item"><a href="#home-section" class="nav-link"><span style=" text-shadow: black 0.1em 0.1em 0.2em;">Home</span></a></li>
-	          <li class="nav-item"><a href="#about-section" class="nav-link"><span style=" text-shadow: black 0.1em 0.1em 0.2em;">Perfil</span></a></li>
+	          <li class="nav-item"><a href="#about-section" class="nav-link" data-toggle="modal" data-target=".bd-example-modal-lg"><span style=" text-shadow: black 0.1em 0.1em 0.2em;">Perfil</span></a></li>
 	          <li class="nav-item"><a href="#sermons-section" class="nav-link"><span style=" text-shadow: black 0.1em 0.1em 0.2em;">Livros</span></a></li>
               <li class="nav-item"><a href="AlunoLogado.php?sair=1" class="nav-link" style=" text-shadow: black 0.1em 0.1em 0.2em;"><span>Sair</span></a></li>
 	        </ul>
@@ -211,7 +212,19 @@
       </div>
     </section>
 
-    
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-body">
+              <h5>Popover em um modal</h5>
+              <button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Título do popover" data-content="Aqui vai algum tipo de conteúdo. Muito da hora, né?!">Clique para ver o popover</button>
+              <hr>
+              <h5>Tooltips em um modal</h5>
+              <p><a href="#" class="tooltip-test" title="Tooltip">Este link</a> e <a href="#" class="tooltip-test" title="Tooltip">este outro</a> mostra tooltips, quando passamos o mouse sobre eles.</p>
+            </div>
+        </div>
+      </div>
+    </div>
 
 		<section class="ftco-section bg-light" id="sermons-section">
 			<div class="container">
@@ -270,8 +283,7 @@
 
             }
         ?>
-		</section>    
-            }
+		</section> 
 
    <footer class="ftco-footer ftco-bg-dark ftco-section">
       <div class="container">
