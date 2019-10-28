@@ -102,6 +102,20 @@
                 ai.value = ai.value + "-";
             }
         }
+
+        function alt(a){
+            if(a.value == "alt"){
+                name = "<input type='text' name='nom_txt' class='form-control placeholder='Novo Nome'>";
+                btn = "<button onclick='alt(this)' value='volt' class='form-control w-50 mt-3' style='float: left;'>Voltar</button>";
+                ipt = "<input type='submit' name='nom_upt' value='Redefinir' class='form-control w-50 mt-3' style='float: right;'>";
+                document.getElementById("nome_usu").innerHTML = name+btn+ipt;
+            }else{
+                name = "<h5 class='mt-2 mb-2'><?php echo $_COOKIE['NLogado']; ?></h5>";
+                btn = "<button onclick='alt(this)' value='alt' class='form-control w-50 mt-4'>Alterar</button>";
+                document.getElementById("nome_usu").innerHTML = name+btn;
+
+            }
+        }
     </script>
 
     <script>
@@ -213,17 +227,30 @@
     </section>
 
     <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="modal-body">
-              <h5>Popover em um modal</h5>
-              <button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Título do popover" data-content="Aqui vai algum tipo de conteúdo. Muito da hora, né?!">Clique para ver o popover</button>
-              <hr>
-              <h5>Tooltips em um modal</h5>
-              <p><a href="#" class="tooltip-test" title="Tooltip">Este link</a> e <a href="#" class="tooltip-test" title="Tooltip">este outro</a> mostra tooltips, quando passamos o mouse sobre eles.</p>
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="row">
+                        <h3 style="margin: 0 auto;">Perfil</h3>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="cow ml-3 mr-3 w-100" id="nome_usu">
+                            <h5>
+                                Matrícula: <?php echo $_COOKIE['MLogado'];?>
+                                <br>
+                                Nome: <?php echo $_COOKIE['NLogado'];?>
+                                <br>
+                                Status: <?php echo $_COOKIE['STLogado'];?> 
+                            
+                                <hr>
+                                
+                            </h5>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-      </div>
     </div>
 
 		<section class="ftco-section bg-light" id="sermons-section">
@@ -308,9 +335,6 @@
       </div>
     </footer>
 
-    
-  
-
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
@@ -331,6 +355,5 @@
   <script src="js/google-map.js"></script>
   
   <script src="js/main.js"></script>
-    
-  </body>
+      </body>
 </html>
