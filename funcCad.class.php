@@ -167,6 +167,7 @@
 							setcookie('NLogado', $value['nome']);
 							setcookie('MLogado', $value['matricula']);
 							setcookie('STLogado', $value['stt']);
+							setcookie('PSLogado', $value['senha']);
 							?>
 								<script type="text/javascript">
 									window.location.href = 'AlunoLogado.php';
