@@ -19,6 +19,7 @@
 			}else{
 
 			}
+		
 		}
 
 		public function val($id){
@@ -103,7 +104,6 @@
 			}
 
 		}
-
 
 		public function cadAlu($mat, $sen,$tel1, $tel2, $email, $whats){
 			$con = new Conexao();
@@ -195,6 +195,7 @@
 			} catch (Exception $e) {
 				echo $e -> getMessage();
 			}
+		
 		}
 
 		public function dados($mat){
@@ -268,6 +269,7 @@
 				}catch(PDOException $e){
 					echo $e->getMessage();
 				}
+		
 		}
 
 		public function edit($tip ,$val, $mat){
@@ -287,6 +289,7 @@
 			} catch (Exception $e) {
 				echo $e -> getMessage();
 			}
+		
 		}
 
 		public function qrs(){
@@ -367,6 +370,7 @@
 			} catch (Exception $e) {
 				echo $e -> getMessage();
 			}
+		
 		}
 
 		public function livro($id){
@@ -449,6 +453,7 @@
 		        </div>
 			</div>
 			<?php
+		
 		}
 
 		public function et2($op){
@@ -616,8 +621,7 @@
 			} catch (Exception $e) {
 				echo $e -> getMessage();
 			}
-
-			
+	
 		}
 
 		public function et4($id){
@@ -657,6 +661,7 @@
 			} catch (Exception $e) {
 				echo $e -> getMessage();
 			}
+		
 		}
 
 		public function emp($id, $alu){
@@ -778,6 +783,7 @@
 				}catch(PDOException $e){
 					echo $e -> getMessage();
 				}
+		
 		}
 
 		public function pagina($rpp, $tipP, $valP){
@@ -1086,6 +1092,7 @@
 			} catch (Exception $e) {
 				echo $e -> getMessage();
 			}
+		
 		}
 
 		public function gens(){
@@ -1109,6 +1116,7 @@
 			} catch (Exception $e) {
 				echo $e->getMessage();
 			}
+		
 		}
 
 		public function auts(){
@@ -1132,6 +1140,7 @@
 			} catch (Exception $e) {
 				echo $e->getMessage();
 			}
+		
 		}
 
 		public function edits(){
@@ -1154,6 +1163,42 @@
 
 			} catch (Exception $e) {
 				echo $e->getMessage();
+			}
+		
+		}
+
+		public function att(){
+			$con = new Conexao();
+			$conn = $con->getConection();
+
+			try {
+				$sql = "SELECT * FROM emprestimos INNER JOIN usuarios ON idUsu = matricula";
+				$lul = $conn -> prepare($sql);
+
+				$lul -> execute();
+
+				$ar = $lul -> fetchAll();
+
+				foreach ($ar as $value) {
+					if($value['ven_dia'] == date('z')){
+						$sql1 = "UPDATE emprestimos SET STATUS = :stt WHERE id_emp = :emp";
+						$lul1 = $conn -> prepare($sql1);
+						$lul1 -> bindValue(':stt', 2);
+						$lul1 -> bindValue(':emp', $value['id_emp']);
+
+						$lul1 -> execute();
+
+						$sql2 = "UPDATE usuarios SET stt = :stt WHERE matricula = :usu";
+						$lul2 = $conn -> prepare($sql2);
+						$lul2 -> bindValue(':stt', 3);
+						$lul2 -> bindValue(':usu', $value['idUsu']);
+
+						$lul2 -> execute();						
+					}
+				}
+
+			} catch (Exception $e) {
+				echo $e -> getMessage();
 			}
 		}
 	}

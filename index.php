@@ -3,6 +3,8 @@
 
     $funcG  = new Func();
 
+    $funcG -> att();
+
     if (isset($_POST['btnLog'])) {
         $funcG -> login($_POST['matLog'], $_POST['senLog']);
     }
