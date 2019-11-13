@@ -121,6 +121,24 @@
             }
         }
 
+        function att(a){
+            if(a.value == "a"){
+                form_1 = "<form action='' method='POST'>";
+                text = "<label>Senha: <?php echo $_COOKIE['PSLogado']; ?></label>";
+                box = "<input type='text' class='form-control' name='upt_sen'>";
+                btn_back = "<button value='b' class='btn btn-outline-dark mt-3' onclick='att(this)'>Voltar</button>";
+                btn_form = "<input type='submit' class='btn btn-outline-dark ml-2 mt-3' name='btn_uptSen' value='Alterar'>";
+                form_2 = "</form>";
+
+                document.getElementById('senha').innerHTML = form_1+text+box+btn_back+btn_form+form_2;
+            }else{
+                text = "<label>Senha: <?php echo $_COOKIE['PSLogado']; ?></label>";
+                btn = "<button value='a' class='btn btn-outline-dark ml-3' onclick='att(this)'>Alterar</button>";
+
+                document.getElementById('senha').innerHTML = text+btn;
+            }
+        }
+
     </script>
 
     <script>
@@ -253,6 +271,13 @@
                                 <div id='senha' class='ml-3 mr-3'>
                                     <label>Senha: <?php echo $_COOKIE['PSLogado']; ?></label>
                                     <button value='a' class="btn btn-outline-dark ml-3" onclick="att(this)">Alterar</button>
+                                </div>
+
+                                <hr>
+
+                                <div id='senha' class='ml-3 mr-3'>
+                                    <label>Telefone: <?php echo $_COOKIE['T1Logado']; ?></label>
+                                    <button value='a' class="btn btn-outline-dark ml-3" onclick="att2(this)">Alterar</button>
                                 </div>
                             </h5>
                         </div>
