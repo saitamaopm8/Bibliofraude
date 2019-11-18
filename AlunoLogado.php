@@ -3,6 +3,8 @@
 
     $funcG  = new Func();
 
+    $funcG -> att();
+    
     if (!isset($_COOKIE['ALogado'])) {
         ?>
             <script type="text/javascript">
@@ -294,15 +296,15 @@
           	<span class="subheading">Livros</span>
             <span>
                 <form action="AlunoLogado.php" method="GET" class="form-inline mt-3">
-                        <input type="text" class="form-control" name="text_pesq" style="width: 60%;">
+                        <input type="text" class="form-control" placeholder="Pesquisar Título" name="text_pesq" style="width: 60%;">
                         <input type="hidden" name="page" value="1">
-                        <input type="submit" class="btn btn-primary ml-3 py-3" value="Pesquisa" style="width: 35%;">
+                        <input type="submit" class="btn btn-primary ml-3 py-3" value="Enviar" style="width: 35%;">
                  
                 </form>
                 <form action="AlunoLogado.php" method="GET" class="form-inline mt-3">
                    
                         <select name="gen_pesq" class="form-control" style="width: 60%;">
-                            <option></option>
+                            <option selected disabled>Gênero</option>
                             <?php
                                 $funcG -> gens();
                             ?>
@@ -314,7 +316,7 @@
                 <form action="AlunoLogado.php" method="GET" class="form-inline mt-3">
                    
                         <select name="aut_pesq" class="form-control" style="width: 60%;">
-                            <option></option>
+                            <option selected disabled>Autor</option>
                             <?php
                                 $funcG -> auts();
                             ?>

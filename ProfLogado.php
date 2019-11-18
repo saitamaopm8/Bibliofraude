@@ -1,4 +1,9 @@
 <?php
+require('funcCad.class.php');
+
+    $funcG  = new Func();
+
+    $funcG -> att();
     
     setcookie('ALogado');
     setcookie('MLogado');

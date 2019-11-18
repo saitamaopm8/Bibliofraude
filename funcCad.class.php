@@ -691,17 +691,6 @@
 
 						$ar1 = $hi1 -> fetchAll();
 
-						foreach ($ar1 as $key1) {
-							$sql2 = "DELETE FROM emprestimos WHERE id_emp = :id_emp";
-
-							$hi2 = $conn -> prepare($sql2);
-							$hi2 -> bindValue(":id_emp", $key1['id_emp']);
-
-							$hi2 -> execute();
-
-							$alu = $key1['matricula'];
-						}
-
 						$sql3 = "INSERT INTO emprestimos(ven_dia, id_livro, idUsu, STATUS)VALUES(:ven_dia, :id_livro, :idAluno, :STATUS)";
 
 						$hi3 = $conn -> prepare($sql3);
@@ -756,9 +745,10 @@
 
 				try{
 
-					$sql = "DELETE FROM emprestimos WHERE idUsu = :id_emp";
+					$sql = "UPDATE emprestimos SET STATUS = :val WHERE idUsu = :id_emp";
 					$lul = $conn -> prepare($sql);
 					$lul -> bindValue(":id_emp", $idA);
+					$lul -> bindValue(":val", 0);
 
 					$lul -> execute();
 
@@ -907,14 +897,14 @@
 		                                        <div class="text-content p-4 text-center" style="background-color: white;">
 		                                            <span style="color: black;">Escrito por:</span>
 		                                                <h3 style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%;">
-		                                                	<a  class='text text-dark' href="AlunoLogado.php?aut_pesq=<?php echo $row['autor']; ?>&page=1"><?php echo $row['aut1']; ?></a>	
+		                                                	<a title='Pesquisar por autor' class='text text-dark' href="AlunoLogado.php?aut_pesq=<?php echo $row['autor']; ?>&page=1"><?php echo $row['aut1']; ?></a>	
 		                                                </h3>
 		                                                
 		                                                <p class="" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%;">
 		                                                    
-		                                                    <a href='AlunoLogado.php?gen_pesq=<?php echo $row['genero']; ?>&page=1' class='text text-dark'><?php echo $row['gen1'];?></a>
+		                                                    <a title='Pesquisar por gênero' href='AlunoLogado.php?gen_pesq=<?php echo $row['genero']; ?>&page=1' class='text text-dark'><?php echo $row['gen1'];?></a>
 		                                                                         | 
-		                                                    <a href='AlunoLogado.php?gen_pesq=<?php echo $row['genero2']; ?>&page=1' class='text text-dark'><?php echo $row['gen2'];?></a>        
+		                                                    <a title='Pesquisar por gênero' href='AlunoLogado.php?gen_pesq=<?php echo $row['genero2']; ?>&page=1' class='text text-dark'><?php echo $row['gen2'];?></a>        
 		                                                </p>
 		                                        </div>
 		                                    </div>
@@ -937,14 +927,14 @@
 		                                    <div class="text-content p-4 text-center" style="background-color: white;">
 		                                            <span style="color: black;">Escrito por:</span>
 		                                                <h3 style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%;">
-		                                                	<a  class='text text-dark' href="AlunoLogado.php?aut_pesq=<?php echo $row['autor']; ?>&page=1"><?php echo $row['aut1']; ?></a>	
+		                                                	<a title='Pesquisar por autor' class='text text-dark' href="AlunoLogado.php?aut_pesq=<?php echo $row['autor']; ?>&page=1"><?php echo $row['aut1']; ?></a>	
 		                                                </h3>
 		                                                
 		                                                <p class="" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%;">
 		                                                    
-		                                                    <a href='AlunoLogado.php?gen_pesq=<?php echo $row['genero']; ?>&page=1' class='text text-dark'><?php echo $row['gen1'];?></a>
+		                                                    <a title='Pesquisar por gênero' href='AlunoLogado.php?gen_pesq=<?php echo $row['genero']; ?>&page=1' class='text text-dark'><?php echo $row['gen1'];?></a>
 		                                                                         | 
-		                                                    <a href='AlunoLogado.php?gen_pesq=<?php echo $row['genero2']; ?>&page=1' class='text text-dark'><?php echo $row['gen2'];?></a>        
+		                                                    <a title='Pesquisar por gênero' href='AlunoLogado.php?gen_pesq=<?php echo $row['genero2']; ?>&page=1' class='text text-dark'><?php echo $row['gen2'];?></a>        
 		                                                </p>
 		                                        </div>
 		                                </div>
@@ -967,14 +957,14 @@
 		                                    <div class="text-content p-4 text-center" style="background-color: white;">
 		                                            <span style="color: black;">Escrito por:</span>
 		                                                <h3 style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%;">
-		                                                	<a  class='text text-dark' href="AlunoLogado.php?aut_pesq=<?php echo $row['autor']; ?>&page=1"><?php echo $row['aut1']; ?></a>	
+		                                                	<a title='Pesquisar por autor' class='text text-dark' href="AlunoLogado.php?aut_pesq=<?php echo $row['autor']; ?>&page=1"><?php echo $row['aut1']; ?></a>	
 		                                                </h3>
 		                                                
 		                                                <p class="" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%;">
 		                                                    
-		                                                    <a href='AlunoLogado.php?gen_pesq=<?php echo $row['genero']; ?>&page=1' class='text text-dark'><?php echo $row['gen1'];?></a>
+		                                                    <a title='Pesquisar por gênero' href='AlunoLogado.php?gen_pesq=<?php echo $row['genero']; ?>&page=1' class='text text-dark'><?php echo $row['gen1'];?></a>
 		                                                                         | 
-		                                                    <a href='AlunoLogado.php?gen_pesq=<?php echo $row['genero2']; ?>&page=1' class='text text-dark'><?php echo $row['gen2'];?></a>        
+		                                                    <a title='Pesquisar por gênero' href='AlunoLogado.php?gen_pesq=<?php echo $row['genero2']; ?>&page=1' class='text text-dark'><?php echo $row['gen2'];?></a>        
 		                                                </p>
 		                                        </div>
 		                                </div>
@@ -1183,7 +1173,7 @@
 				$ar = $lul -> fetchAll();
 
 				foreach ($ar as $value) {
-					if($value['ven_dia'] == date('z')){
+					if($value['ven_dia'] <= date('z')){
 						$sql1 = "UPDATE emprestimos SET STATUS = :stt WHERE id_emp = :emp";
 						$lul1 = $conn -> prepare($sql1);
 						$lul1 -> bindValue(':stt', 2);
@@ -1204,6 +1194,110 @@
 				echo $e -> getMessage();
 			}
 		}
+
+		public function allObr(){
+			$con = new Conexao();
+			$conn = $con->getConection();
+
+			try {
+				$sql = "SELECT t.id_obra, t.titulo,t.capasVar, t.qt, editoras.nomEdi,t.status, t.editora, g1.nomGen AS gen1, g2.nomGen AS gen2, a1.nomAut AS aut1, a2.nomAut AS aut2, a3.nomAut AS aut3 FROM obras t
+					INNER JOIN generos g1 ON t.genero = g1.id_genero 
+					INNER JOIN generos g2 ON t.genero2 = g2.id_genero 
+					INNER JOIN autor a1 ON t.autor = a1.id_autor
+					INNER JOIN autor a2 ON t.autor2 = a2.id_autor
+					INNER JOIN autor a3 ON t.autor3 = a3.id_autor
+					INNER JOIN editoras ON t.editora = id_editora ORDER BY titulo ASC";
+
+				$lul = $conn -> prepare($sql);
+
+				$lul -> execute();
+
+				$ar = $lul -> fetchAll();
+
+				foreach ($ar as $key) {
+					?>
+					<tr>
+						<td><?php echo $key['id_obra']; ?></td>
+						<td><?php echo $key['titulo']; ?></td>
+						<td><?php echo $key['gen1']; ?></td>
+						<td><?php echo $key['status']; ?></td>
+						<td><?php echo $key['aut1']; ?></td>
+
+						<?php
+							if ($key['capasVar'] == 0) {
+						?>
+								<td><?php echo "NÃO"; ?></td>
+						<?php
+							}else{
+						?>
+								<td><?php echo "SIM"; ?></td>
+						<?php
+							}
+						?>
+
+						<td><?php echo $key['nomEdi']; ?></td>
+						<form action="edit.php" method="GET">
+							<td><button title='Editar' href="edit.php"	value="<?php echo $key['id_obra']; ?>" name="ai" class="btn btn-sm btn-warning">
+								<i class="fas fa-edit"></i></button></td>
+						</form>
+
+						<form action="" method="POST">
+							<td><button title='Excluir' value="<?php echo $key['id_obra']; ?>" name="ai"  class="btn btn-sm btn-danger">
+								<i class="fas fa-times"></i>
+							</button></td>
+						</form>
+
+					</tr>
+					<?php
+				}	
+			}catch (Exception $e) {
+				echo $e->getMessage();
+			}
+		}
+
+		public function cadGen($nomGen){
+			$con = new Conexao();
+			$conn = $con->getConection();
+
+			try {
+				$sql = "INSERT INTO generos(nomGen)VALUES(:nomGen)";
+				$lul = $conn -> prepare($sql);
+				$lul -> bindValue(":nomGen", $nomGen);
+
+				$lul -> execute();
+
+			} catch (Exception $e) {
+				?>
+					<script>
+						alert("Error:\nPossiveis Erros: \n\nGenero já cadastrado\nBanco de dados não iniciado");
+					</script>
+				<?php
+			}
+
+			?>
+				<script>
+					window.location.href = "info.php"; 
+				</script>
+			<?php
+		}
+
+		public function alterar_senha_usuario($matricula, $senha){
+			$con = new Conexao();
+			$conn = $con->getConection();
+		
+			$sql = "UPDATE usuarios SET senha = :senha WHERE matricula = :matricula;";
+
+			$connection = $conn -> prepare($sql);
+				$connection -> bindValue(":matricula", $matricula);
+				$connection -> bindValue(":senha", $senha);
+			
+			if ($connection -> execute()) {
+				echo "blz";
+			} else {
+				echo "erro";
+			}
+		}
+
 	}
 
 
